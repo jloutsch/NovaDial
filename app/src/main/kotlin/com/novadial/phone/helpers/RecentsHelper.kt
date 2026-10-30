@@ -434,7 +434,7 @@ class RecentsHelper(private val context: Context) {
 
                     callback(result)
                 } catch (e: Exception) {
-                    Log.e(TAG, "Error fetching call history for number $phoneNumber", e)
+                    Log.e(TAG, "Error fetching call history for number", e)
                     callback(emptyList())
                 }
             }

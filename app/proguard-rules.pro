@@ -24,3 +24,10 @@
 
 # Keep org.fossify classes to preserve call stack package checks in getPackageName()
 -keep class org.fossify.** { *; }
+
+# Strip debug and verbose logs from release builds. Several of them include
+# phone numbers, MMI/USSD codes and USSD responses, which must not reach logcat.
+-assumenosideeffects class android.util.Log {
+    public static int d(...);
+    public static int v(...);
+}
