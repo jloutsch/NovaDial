@@ -31,6 +31,8 @@ import com.novadial.phone.activities.SimpleActivity
 import com.novadial.phone.dialogs.SelectSIMDialog
 import com.novadial.phone.helpers.SpecialCodeDispatcher
 
+// placeCall throws SecurityException without CALL_PHONE; the try/catch below handles it.
+@SuppressLint("MissingPermission")
 fun SimpleActivity.startCallIntent(
     recipient: String,
     forceSimSelector: Boolean = false
@@ -103,6 +105,8 @@ fun SimpleActivity.startCallWithConfirmationCheck(contact: Contact) {
     }
 }
 
+// placeCall throws SecurityException without CALL_PHONE; the try/catch below handles it.
+@SuppressLint("MissingPermission")
 fun BaseSimpleActivity.callContactWithSim(
     recipient: String,
     useMainSIM: Boolean

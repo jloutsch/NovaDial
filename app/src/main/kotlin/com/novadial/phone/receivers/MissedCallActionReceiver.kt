@@ -1,5 +1,6 @@
 package com.novadial.phone.receivers
 
+import android.annotation.SuppressLint
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -15,6 +16,8 @@ class MissedCallActionReceiver : BroadcastReceiver() {
         const val EXTRA_PHONE_NUMBER = "extra_phone_number"
     }
 
+    // placeCall throws SecurityException without CALL_PHONE; the try/catch below handles it.
+    @SuppressLint("MissingPermission")
     override fun onReceive(context: Context, intent: Intent) {
         val number = intent.getStringExtra(EXTRA_PHONE_NUMBER) ?: return
 
