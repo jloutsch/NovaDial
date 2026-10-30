@@ -1,5 +1,6 @@
 package com.novadial.phone.helpers
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -110,6 +111,8 @@ object SpecialCodeDispatcher {
         return true
     }
 
+    // handleMmi needs CALL_PHONE; the try/catch below handles a SecurityException.
+    @SuppressLint("MissingPermission")
     private fun handleMmiCode(
         activity: SimpleActivity,
         cleanNumber: String,
@@ -142,6 +145,8 @@ object SpecialCodeDispatcher {
         return false
     }
 
+    // handleMmi needs CALL_PHONE; the try/catch below handles a SecurityException.
+    @SuppressLint("MissingPermission")
     private fun handleUssdCode(
         activity: SimpleActivity,
         cleanNumber: String,

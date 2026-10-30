@@ -77,6 +77,8 @@ fun Context.areMultipleSIMsAvailable(): Boolean {
     }
 }
 
+// Only works as the default dialer; the try/catch below covers the SecurityException otherwise.
+@SuppressLint("MissingPermission")
 fun Context.clearMissedCalls() {
     ensureBackgroundThread {
         try {
