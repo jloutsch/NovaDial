@@ -104,7 +104,7 @@ object SpecialCodeDispatcher {
                 activity.sendBroadcast(intent)
             }
         } catch (e: Exception) {
-            Log.e(TAG, "Failed to send secret code $secretCode: ${e.message}", e)
+            Log.e(TAG, "Failed to send secret code: ${e.message}", e)
             activity.toast(R.string.mmi_failed)
         }
         return true
@@ -123,7 +123,7 @@ object SpecialCodeDispatcher {
                 activity.telecomManager.handleMmi(cleanNumber)
             }
         } catch (e: Exception) {
-            Log.e(TAG, "telecomManager.handleMmi exception for $cleanNumber: ${e.message}", e)
+            Log.e(TAG, "telecomManager.handleMmi exception: ${e.message}", e)
             false
         }
 
@@ -157,7 +157,7 @@ object SpecialCodeDispatcher {
                 activity.telecomManager.handleMmi(cleanNumber)
             }
         } catch (e: Exception) {
-            Log.e(TAG, "telecomManager.handleMmi exception for USSD $cleanNumber: ${e.message}", e)
+            Log.e(TAG, "telecomManager.handleMmi exception for USSD: ${e.message}", e)
             false
         }
 
@@ -229,7 +229,7 @@ object SpecialCodeDispatcher {
             }
         }
 
-        Log.w(TAG, "USSD execution unavailable for $cleanNumber")
+        Log.w(TAG, "USSD execution unavailable")
         activity.toast(R.string.mmi_failed)
         return true
     }
